@@ -1,37 +1,40 @@
 # chronicle
 
-[![Validations](https://github.com/anchore/chronicle/actions/workflows/validations.yaml/badge.svg)](https://github.com/anchore/chronicle/actions/workflows/validations.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/anchore/chronicle)](https://goreportcard.com/report/github.com/anchore/chronicle)
-[![GitHub release](https://img.shields.io/github/release/anchore/chronicle.svg)](https://github.com/anchore/chronicle/releases/latest)
-[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/anchore/chronicle.svg)](https://github.com/anchore/chronicle)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/anchore/chronicle/blob/main/LICENSE)
-[![Slack Invite](https://img.shields.io/badge/Slack-Join-blue?logo=slack)](https://anchore.com/slack)
-
+[![Validations](https://github.com/nextlinux/chronicle/actions/workflows/validations.yaml/badge.svg)](https://github.com/nextlinux/chronicle/actions/workflows/validations.yaml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/nextlinux/chronicle)](https://goreportcard.com/report/github.com/nextlinux/chronicle)
+[![GitHub release](https://img.shields.io/github/release/nextlinux/chronicle.svg)](https://github.com/nextlinux/chronicle/releases/latest)
+[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/nextlinux/chronicle.svg)](https://github.com/nextlinux/chronicle)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/nextlinux/chronicle/blob/main/LICENSE)
+[![Slack Invite](https://img.shields.io/badge/Slack-Join-blue?logo=slack)](https://nextlinux.com/slack)
 
 **A fast changelog generator that sources changes from GitHub PRs and issues, organized by labels.**
 
-
 Create a changelog from the last GitHib release until the current git HEAD tag/commit for the git repo in the current directory:
+
 ```bash
-chronicle 
+chronicle
 ```
 
 Create a changelog with all changes from v0.16.0 until current git HEAD tag/commit for the git repo in the current directory:
+
 ```bash
 chronicle --since-tag v0.16.0
 ```
 
 Create a changelog between two specific tags for a repo at the given path
+
 ```bash
 chronicle --since-tag v0.16.0 --until-tag v0.18.0 ./path/to/git/repo
 ```
 
 Create a changelog and guess the release version from the set of changes in the changelog
+
 ```bash
 chronicle -n
 ```
 
 Just guess the next release version based on the set of changes (don't create a changelog)
+
 ```bash
 chronicle next-version
 ```
@@ -39,22 +42,23 @@ chronicle next-version
 ## Installation
 
 ```bash
-curl -sSfL https://raw.githubusercontent.com/anchore/chronicle/main/install.sh | sh -s -- -b /usr/local/bin
+curl -sSfL https://raw.githubusercontent.com/nextlinux/chronicle/main/install.sh | sh -s -- -b /usr/local/bin
 ```
 
 ...or, you can specify a release version and destination directory for the installation:
 
 ```
-curl -sSfL https://raw.githubusercontent.com/anchore/chronicle/main/install.sh | sh -s -- -b <DESTINATION_DIR> <RELEASE_VERSION>
+curl -sSfL https://raw.githubusercontent.com/nextlinux/chronicle/main/install.sh | sh -s -- -b <DESTINATION_DIR> <RELEASE_VERSION>
 ```
 
 ## Configuration
 
 Configuration search paths:
-  - `.chronicle.yaml`
-  - `.chronicle/config.yaml`
-  - `~/.chronicle.yaml`
-  - `<XDG_CONFIG_HOME>/chronicle/config.yaml`
+
+- `.chronicle.yaml`
+- `.chronicle/config.yaml`
+- `~/.chronicle.yaml`
+- `<XDG_CONFIG_HOME>/chronicle/config.yaml`
 
 ### Default values
 
@@ -105,11 +109,10 @@ title: Changelog
 
 # all github-related settings
 github:
-  
   # the github host to use (override for github enterprise deployments)
   # same as CHRONICLE_GITHUB_HOST env var
   host: github.com
-  
+
   # do not consider any issues or PRs with any of the given labels
   # same as CHRONICLE_GITHUB_EXCLUDE_LABELS env var
   exclude-labels:
@@ -121,7 +124,7 @@ github:
     - release-ignore
     - changelog-ignore
     - ignore
-  
+
   # consider merged PRs as candidate changelog entries (must have a matching label from a 'github.changes' entry)
   # same as CHRONICLE_GITHUB_INCLUDE_PRS env var
   include-prs: true
@@ -133,12 +136,11 @@ github:
   # issues can only be considered for changelog candidates if they have linked PRs that are merged (note: does NOT require github.include-issues to be set)
   # same as CHRONICLE_GITHUB_ISSUES_REQUIRE_LINKED_PRS env var
   issues-require-linked-prs: false
-  
-  # list of definitions of what labels applied to issues or PRs constitute a changelog entry. These entries also dictate 
+
+  # list of definitions of what labels applied to issues or PRs constitute a changelog entry. These entries also dictate
   # the changelog section, the changelog title, and the semver field that best represents the class of change.
   # note: cannot be set via environment variables
   changes: [...<list of entries>...] # See "Default GitHub change definitions" section for more details
-
 ```
 
 ### Default GitHub change definitions
@@ -159,7 +161,7 @@ The default value for `github.changes` is:
   labels:
     - security
     - vulnerability
-  
+
 - name: added-feature
   title: Added Features
   semver-field: minor
@@ -167,7 +169,7 @@ The default value for `github.changes` is:
     - enhancement
     - feature
     - minor
-  
+
 - name: bug-fix
   title: Bug Fixes
   semver-field: patch
@@ -176,7 +178,7 @@ The default value for `github.changes` is:
     - fix
     - bug-fix
     - patch
-  
+
 - name: breaking-feature
   title: Breaking Changes
   semver-field: major
@@ -186,13 +188,13 @@ The default value for `github.changes` is:
     - breaking-change
     - breaking-feature
     - major
-    
+
 - name: removed-feature
   title: Removed Features
   semver-field: major
   labels:
     - removed
-  
+
 - name: deprecated-feature
   title: Deprecated Features
   semver-field: minor
