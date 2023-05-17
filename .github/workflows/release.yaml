@@ -54,8 +54,7 @@ jobs:
     needs: [quality-gate]
     runs-on: ubuntu-20.04
     steps:
-
-      - uses: actions/setup-go@v4
+      - uses: actions/setup-go@v3
         with:
           go-version: ${{ env.GO_VERSION }}
 
@@ -92,6 +91,14 @@ jobs:
         with:
           artifact-name: sbom.spdx.json
 
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,workflow,action,eventName
+          text: "A new Chronicle release is ready to be manually published: https://github.com/nextlinux/chronicle/releases"
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_TOOLBOX_WEBHOOK_URL }}
+        if: ${{ success() }}
       - uses: actions/upload-artifact@v3
         with:
           name: artifacts
