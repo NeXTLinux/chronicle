@@ -201,14 +201,12 @@ github.com/mitchellh/go-homedir v1.1.0/go.mod h1:SfyaCUpYCn1Vlf4IUYiD9fPX4A5wJrk
 github.com/mitchellh/mapstructure v1.5.0 h1:jeMsZIYE/09sWLaz43PL7Gy6RuMjD2eJVyuac5Z2hdY=
 github.com/mitchellh/mapstructure v1.5.0/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
 github.com/mmcloughlin/avo v0.5.0/go.mod h1:ChHFdoV7ql95Wi7vuq2YT1bwCJqiWdZrQ1im3VujLYM=
-github.com/nextlinux/go-logger v1.1.1 h1:lNbLXDJuFalLM5gaKQ7Ok2jnsORie87qD7WzAqA0EgE=
-github.com/nextlinux/go-logger v1.1.1/go.mod h1:gZMepITjDtV8IjJlirNnX/+E5PeG2FynyZrc386YW5U=
+github.com/nextlinux/go-logger v1.1.2 h1:XnDMw7EEdrLVIYiN4JfPqsgId4cQBoPFBKVcHbhm6H4=
+github.com/nextlinux/go-logger v1.1.2/go.mod h1:fkf4RQntmck5O7Fy3u27u8mmjBNT3RUCymrFhQjUIiE=
 github.com/nextlinux/go-testutils v0.0.0-20230423054508-482fff308e0e h1:KDulZZnZsaH4Ra9iyYTS2kRUCTUEWc1LZg4KVgw4ECw=
 github.com/nextlinux/go-testutils v0.0.0-20230423054508-482fff308e0e/go.mod h1:1VmwrsS5P7FRKjWmBHN2C6EbuioBlLD/q77teh2FO+I=
 github.com/nextlinux/go-version v1.2.1 h1:KESIkO1632VYEzqoAr2rAOkilYlv62qGFcqh1FFj+Js=
 github.com/nextlinux/go-version v1.2.1/go.mod h1:4wk/zi4tfMI+z58/SDR3uDlViAIw+isaY3PaNCUPybk=
-github.com/nextlinux/gologger v1.0.1 h1:kX8J8P/Uy8J4RY3rlgZlBYBdOEV1en2IV9bsW5aD5HU=
-github.com/nextlinux/gologger v1.0.1/go.mod h1:ANenWV2SwlqeeNb4GPBIs9xshJB8lVQecdTl3QBPXAI=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/pelletier/go-toml/v2 v2.0.6 h1:nrzqCb7j9cDFj2coyLNLaZuJTLjWjlaz6nvTvIwycIU=
 github.com/pelletier/go-toml/v2 v2.0.6/go.mod h1:eumQOmlWiOPt5WriQQqoM5y18pDHwha2N+QD+EUNTek=
